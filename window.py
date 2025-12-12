@@ -105,7 +105,6 @@ class mainwindow(tk.Tk):
             cv2.waitKey()
             img = np.array(self.img_after)
             cv2.imwrite(path, img)
-            print(path)
 
     def update_img(self, img):
         image = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)

@@ -70,6 +70,8 @@ class Gray_threshold(ttk.Frame):
             img_mode = img.mode
             if img_mode == 'RGB':
                 img_cv2 = cv2.cvtColor(img_cv2, cv2.COLOR_RGB2GRAY)
+            elif img_mode == 'RGBA':
+                img_cv2 = cv2.cvtColor(img_cv2, cv2.COLOR_RGBA2GRAY)
             low = self.threshold['Gray_l']
             high = self.threshold['Gray_h']
             mask_cv2 = cv2.inRange(img_cv2, low, high)
