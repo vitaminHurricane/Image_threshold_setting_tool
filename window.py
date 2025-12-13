@@ -83,12 +83,7 @@ class mainwindow(tk.Tk):
             self.RGB_mode.update_src(self.src_path) 
             self.LAB_mode.update_src(self.src_path)
             self.HSV_mode.update_src(self.src_path)
-            self.Gray_tr.set_update()
-            self.Gray_mode.set_threshold(0, '')
-            self.LAB_mode.set_threshold(0, '')
-            self.HSV_mode.set_threshold(0, '')
-            self.RGB_mode.set_threshold(0, '')
-
+            self.mode_change()
 
     def save_img(self):
         path = filedialog.asksaveasfilename(

@@ -1,4 +1,3 @@
-import tkinter as tk
 from tkinter import ttk
 import mixslider
 from PIL import Image
@@ -26,8 +25,12 @@ class Gray_translate(ttk.Frame):
     def callback_handler(self):
         if self.src_path:
             img = Image.open(self.src_path)
+            img_mode = img.mode
             img_cv2 = np.array(img)
-            img_cv2 = cv2.cvtColor(img_cv2, cv2.COLOR_RGB2GRAY)
+            if img_mode == 'RGB':
+                img_cv2 = cv2.cvtColor(img_cv2, cv2.COLOR_RGB2GRAY)
+            elif img_mode == 'RGBA':
+                img_cv2 = cv2.cvtColor(img_cv2, cv2.COLOR_RGBA2GRAY)
             self.callback(img_cv2)
 
     def update_src(self, path):
